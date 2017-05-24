@@ -160,6 +160,7 @@ class AverageAlgorithm(Algorithm):
                 for (i, obs) in enumerate(self.observatories):
                     CORR[obs] = self.scales[i]
 
+
 def get_trace(channel, stats, data):
     """Utility to create a new trace object.
 

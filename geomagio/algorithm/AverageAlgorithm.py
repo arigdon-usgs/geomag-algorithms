@@ -33,7 +33,6 @@ class AverageAlgorithm(Algorithm):
         self._stt = -1
         self._stats = None
 
-
     def check_stream(self, timeseries):
         """checks a stream to make certain the required data
             exists.
@@ -50,7 +49,7 @@ class AverageAlgorithm(Algorithm):
         if len(timeseries) != len(self.observatories):
             raise AlgorithmException(
                 'Expected data for %d stations, received %d'
-                    % (len(self.observatories), len(timeseries)) )
+                    % (len(self.observatories), len(timeseries)))
 
         # timeseries starttime and number of samples must match
         for ts in timeseries:
@@ -71,7 +70,6 @@ class AverageAlgorithm(Algorithm):
                 raise AlgorithmException(
                     'Received timeseries have different starttimes')
 
-
     def process(self, timeseries):
         """averages a channel across multiple stations
 
@@ -87,15 +85,15 @@ class AverageAlgorithm(Algorithm):
         self.check_stream(timeseries)
 
         # initialize sum and count series
-        dst_sum = numpy.full(self._npts,0.)
-        dst_count = numpy.full(self._npts,0.)
+        dst_sum = numpy.full(self._npts, 0.)
+        dst_count = numpy.full(self._npts, 0.)
 
         # loop over stations
         for obsy in self.observatories:
 
             # lookup latitude correction factor, default = 1.0
             latcorr = 1.0
-            if CORR.has_key(obsy):
+            if obspy in CORR:
                 latcorr = CORR[obsy]
 
 #            print '============================'
@@ -126,7 +124,6 @@ class AverageAlgorithm(Algorithm):
         return obspy.core.Stream((
                 get_trace('MSD', self._stats, dst_sum), ))
 
-
     @classmethod
     def add_arguments(cls, parser):
         """Add command line arguments to argparse parser.
@@ -143,7 +140,6 @@ class AverageAlgorithm(Algorithm):
                nargs='*',
                type=float)
 
-
     def configure(self, arguments):
         """Configure algorithm using comand line arguments.
 
@@ -159,12 +155,10 @@ class AverageAlgorithm(Algorithm):
         if self.scales[0] is not None:
             if len(self.observatories) != len(self.scales):
                 raise AlgorithmException(
-                  'Mismatch between observatories and scale factors')
+                    'Mismatch between observatories and scale factors')
             else:
-                for i,obs in enumerate(self.observatories):
-                   CORR[obs] = self.scales[i]
-
-
+                for (i, obs) in enumerate(self.observatories):
+                    CORR[obs] = self.scales[i]
 
 def get_trace(channel, stats, data):
     """Utility to create a new trace object.

@@ -151,7 +151,6 @@ class AverageAlgorithm(Algorithm):
 
         self.observatories = arguments.observatory
         self.scales = arguments.observatory_scale
-        print self.scales
         if self.scales[0] is not None:
             if len(self.observatories) != len(self.scales):
                 raise AlgorithmException(

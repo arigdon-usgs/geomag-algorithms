@@ -26,5 +26,6 @@ __all__ = [
     'TimeseriesUtility',
     'Util',
     'Url',
-    'XYZAlgorithm'
+    'XYZAlgorithm',
+    'AverageAlgorithm'
 ]

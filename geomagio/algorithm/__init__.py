@@ -11,6 +11,7 @@ from .AdjustedAlgorithm import AdjustedAlgorithm
 from .DeltaFAlgorithm import DeltaFAlgorithm
 from .SqDistAlgorithm import SqDistAlgorithm
 from .XYZAlgorithm import XYZAlgorithm
+from .AverageAlgorithm import AverageAlgorithm
 
 
 # algorithms is used by Controller to auto generate arguments
@@ -19,7 +20,8 @@ algorithms = {
     'adjusted': AdjustedAlgorithm,
     'deltaf': DeltaFAlgorithm,
     'sqdist': SqDistAlgorithm,
-    'xyz': XYZAlgorithm
+    'xyz': XYZAlgorithm,
+    'average': AverageAlgorithm
 }
 
 
@@ -31,5 +33,6 @@ __all__ = [
     'AdjustedAlgorithm',
     'DeltaFAlgorithm',
     'SqDistAlgorithm',
-    'XYZAlgorithm'
+    'XYZAlgorithm',
+    'AverageAlgorithm'
 ]

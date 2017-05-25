@@ -18,10 +18,10 @@ from .AverageAlgorithm import AverageAlgorithm
 algorithms = {
     'identity': Algorithm,
     'adjusted': AdjustedAlgorithm,
+    'average': AverageAlgorithm,
     'deltaf': DeltaFAlgorithm,
     'sqdist': SqDistAlgorithm,
-    'xyz': XYZAlgorithm,
-    'average': AverageAlgorithm
+    'xyz': XYZAlgorithm
 }
 
 
@@ -31,8 +31,8 @@ __all__ = [
     'AlgorithmException',
     # algorithms
     'AdjustedAlgorithm',
+    'AverageAlgorithm',
     'DeltaFAlgorithm',
     'SqDistAlgorithm',
-    'XYZAlgorithm',
-    'AverageAlgorithm'
+    'XYZAlgorithm'
 ]

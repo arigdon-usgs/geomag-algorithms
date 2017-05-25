@@ -1,9 +1,10 @@
 """Algorithm that creates an averaged Dst.
 
 """
+from __future__ import absolute_import
 
-from Algorithm import Algorithm
-from AlgorithmException import AlgorithmException
+from .Algorithm import Algorithm
+from .AlgorithmException import AlgorithmException
 import numpy
 import obspy.core
 

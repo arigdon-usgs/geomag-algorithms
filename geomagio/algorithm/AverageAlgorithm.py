@@ -65,11 +65,11 @@ class AverageAlgorithm(Algorithm):
                 raise AlgorithmException(
                     'Received timeseries have different lengths')
 
-            if self._stt == -1:
-                self._stt = ts.stats.starttime
-            if ts.stats.starttime != self._stt:
-                raise AlgorithmException(
-                    'Received timeseries have different starttimes')
+#            if self._stt == -1:
+#                self._stt = ts.stats.starttime
+#            if ts.stats.starttime != self._stt:
+#                raise AlgorithmException(
+#                    'Received timeseries have different starttimes')
 
     def process(self, timeseries):
         """averages a channel across multiple stations
